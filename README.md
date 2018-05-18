@@ -13,3 +13,46 @@
     最后，比较出响应时间最少的ip并print它的ip、端口<br>
     （p.s. 快代理有毒！ping的ip速度最快的是它，但是放到网易云里不能用！唉写了就写了当作练手吧...）<br>
     
+```
+Requesting http://cn-proxy.com/
+```
+```
+Getting IP addresses from cn-proxy.com...
+```
+```
+Pinging ip...
+```
+```
+```
+```
+Requesting http://free-proxy.cz/zh/proxylist/country/CN/all/speed/level3/1
+```
+```
+Getting IP addresses from free-proxy.cz...
+```
+```
+Pinging ip...
+```
+```
+```
+```
+The best ip address is: 
+```
+```
+122.72.18.60
+```
+```
+Its port number is: 
+```
+```
+80
+```
+```
+Its response time is: 
+```
+```
+53ms
+```
+```
+(*^o^*)
+```
