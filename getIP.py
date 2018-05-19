@@ -4,13 +4,13 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import platform
 
-
 ip_regex = re.compile(r'\d+\.\d+\.\d+\.\d+')
 
 
 def get_html(url):
     print('Requesting {}'.format(url))
     user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'
+    # TODO header is never used.
     headers = {
         'User-agent': user_agent,
         'Cookie': '_ga=GA1.2.1328575144.1520154766; _gid=GA1.2.1755846933.1526619066',
@@ -21,15 +21,22 @@ def get_html(url):
     }
 
     chrome_options = Options()
+    # TODO check the web page, javascript render is not needed. A http request can directly download the web page.
+    # this would increase performance greatly as no chromium engine opened.
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     driver = None
+    # TODO use try/except clause for catching exceptions. Don't ever use any of drive=None syntax.
+    # Throw an exception if anything unexcepted happen.
     if 'Windows' in platform.system():
-        driver = webdriver.Chrome(executable_path='venv\chromedriver.exe', chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path='venv\chromedriver.exe',
+                                  chrome_options=chrome_options)
     elif 'Linux' in platform.system():
-        driver = webdriver.Chrome(executable_path='venv\chromedriver_linux64', chrome_options=chrome_options)
-    elif 'mac' in platform.system():
-        driver = webdriver.Chrome(executable_path='venv\chromedriver_mac64', chrome_options=chrome_options)
+        driver = webdriver.Chrome(executable_path='venv/chromedriver_linux64',
+                                  chrome_options=chrome_options)
+    elif 'Darwin' in platform.system():
+        driver = webdriver.Chrome(executable_path='venv/chromedriver_mac64',
+                                  chrome_options=chrome_options)
 
     driver.get(url)
     source = BeautifulSoup(driver.page_source, 'lxml').prettify()
@@ -58,6 +65,7 @@ def c_get_ip(url):
 
     ip_port = {}
 
+    # TODO multiple space characters can be represented as [\s]*
     port_regex = re.compile(r'<td>\n             \d+\n            </td>')
     print('Getting IP addresses from cn-proxy.com...')
 
@@ -72,6 +80,8 @@ def c_get_ip(url):
     for i in range(len(all_ip)):
         ip_port[all_ip[i]] = all_port[i]
 
+    # TODO add an assert to make sure ip_port dictionary is not empty -> which means parsing html failure.
+    # assert len(ip_port.keys()) > 0, 'No items is parsed from c_get_ip(), please check.'
     return ip_port
 
 
@@ -107,7 +117,7 @@ def k_get_ip(url):  # Abandoned! Ignore this!
     ip_port = {}
     page_num = 3  # change the number if you want get more ip addresses
     for i in range(page_num):
-        url = 'https://www.kuaidaili.com/free/intr/{}/'.format(i+1)
+        url = 'https://www.kuaidaili.com/free/intr/{}/'.format(i + 1)
         html = get_html(url)
 
         print('Getting IP addresses from kuaidaili.com...')
@@ -127,7 +137,6 @@ def k_get_ip(url):  # Abandoned! Ignore this!
 
     return ip_port
 
-
 # if __name__ == '__main__':
 #     url = 'http://free-proxy.cz/zh/proxylist/country/CN/all/speed/level3'
 #     html = get_html(url)
@@ -139,4 +148,3 @@ def k_get_ip(url):  # Abandoned! Ignore this!
 #     ip_port = f_get_ip(url)
 #     print(ip_port)
 #     print(len(ip_port))
-
