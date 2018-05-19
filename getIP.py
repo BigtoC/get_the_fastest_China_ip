@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import platform
+import requests
 
 
 ip_regex = re.compile(r'\d+\.\d+\.\d+\.\d+')
@@ -70,7 +71,7 @@ def c_get_ip(url):
         all_port.append(p)
 
     for i in range(len(all_ip)):
-        ip_port[all_ip[i]] = all_port[i]
+        ip_port[str(all_ip[i]) + ':' + str(all_port[i])] = -1
 
     return ip_port
 
@@ -98,7 +99,7 @@ def f_get_ip(url):
         all_port.append(p)
 
     for i in range(len(all_ip)):
-        ip_port[all_ip[i][0]] = all_port[i]
+        ip_port[str(all_ip[i][0]) + ':' + str(all_port[i])] = -1
 
     return ip_port
 
@@ -123,20 +124,23 @@ def k_get_ip(url):  # Abandoned! Ignore this!
             all_port.append(p)
 
         for i in range(len(all_ip)):
-            ip_port[all_ip[i]] = all_port[i]
+            ip_port[str(all_ip[i]) + ':' + str(all_port[i])] = -1
 
     return ip_port
 
 
-# if __name__ == '__main__':
-#     url = 'http://free-proxy.cz/zh/proxylist/country/CN/all/speed/level3'
-#     html = get_html(url)
-#     file = open("2.html", "w", encoding='utf-8')
-#     file.write(html)
-#     file.close()
-#     print(html)
-#
-#     ip_port = f_get_ip(url)
-#     print(ip_port)
-#     print(len(ip_port))
+if __name__ == '__main__':
+    url = 'http://cn-proxy.com/'
+    # html = get_html(url)
+    # file = open("2.html", "w", encoding='utf-8')
+    # file.write(html)
+    # file.close()
+    # print(html)
+    #
+    # ip_port = c_get_ip(url)
+    # print(ip_port)
+    # print(len(ip_port))
+    # r = requests.get('https://www.baidu.com/', proxies={"http": "http://222.33.192.238:8118"})
+    # print(r.status_code)
+
 
