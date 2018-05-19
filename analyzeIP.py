@@ -8,7 +8,6 @@ myip = {"ip": -1, "speed": -1, "port": -1}
 
 
 def analyze_ip(url):
-
     ip_port = dispatch(url)
 
     print('Pinging ip...\n')
@@ -16,6 +15,7 @@ def analyze_ip(url):
 
     lost_regex = r'\w+%'
     ip_regex = r'\d+\.\d+\.\d+\.\d+'
+    # TODO in py3, u'' is not needed as all string are using utf-8 encoding now.
     average_rex = u'Average = \d+ms|平均 = \d+ms'
 
     for key in ip_port:
@@ -39,13 +39,12 @@ def analyze_ip(url):
                 myip["port"] = ip_port[tmp_ip]
 
             else:
+                # TODO Throw exception or assertion for better debuging
                 pass
         else:
+            # TODO same as above
             pass
 
 
 def return_ip():
     return myip
-
-
-

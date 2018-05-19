@@ -1,7 +1,6 @@
 import analyzeIP
 import time
 
-
 urls = ['http://cn-proxy.com/',
         'http://free-proxy.cz/zh/proxylist/country/CN/all/speed/level3/1',
         # 'https://www.kuaidaili.com/free/intr/'  # 快代理的ip虽然快，但是在网易云测试过都不能用，this website sucks
@@ -14,7 +13,7 @@ def compare_ips():
 
 
 def print_result():
-    compare_ips()
+    compare_ips()  # TODO why do you write a line function...
     if good_ip[0]["ip"] and good_ip[0]["speed"] and good_ip[0]["port"] != -1:
         print('The best ip address is: \n{}'.format(good_ip[0]["ip"]))
         time.sleep(0.5)
@@ -24,6 +23,7 @@ def print_result():
         time.sleep(0.5)
         print('(*^o^*)')
     else:
+        # TODO exceptions instead of print string.
         print("Error T_T")
 
 
@@ -39,6 +39,4 @@ if __name__ == '__main__':
 
     print_result()
 
-    print()
-
-
+    print()  # TODO redundant
