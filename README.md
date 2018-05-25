@@ -15,46 +15,24 @@
 <br>
 下面是我自己的输出结果（实际输出因应当时的网络环境和爬到的ip而有所不同）
     
-```
-Requesting http://cn-proxy.com/
-```
-```
-Getting IP addresses from cn-proxy.com...
-```
-```
-Pinging ip...
-```
-```
-```
-```
-Requesting http://free-proxy.cz/zh/proxylist/country/CN/all/speed/level3/1
-```
-```
-Getting IP addresses from free-proxy.cz...
-```
-```
-Pinging ip...
-```
-```
-```
-```
-The best ip address is: 
-```
-```
-122.72.18.60
-```
-```
-Its port number is: 
-```
-```
-80
-```
-```
-Its response time is: 
-```
-```
-53ms
-```
-```
-(*^o^*)
-```
+
+Requesting http://cn-proxy.com/<br>
+Requesting http://free-proxy.cz/zh/proxylist/country/CN/all/ping/all<br>
+Requesting http://www.xicidaili.com/nn/<br>
+Got 6 IPs from cn-proxy.com<br>
+Got 15 IPs from free-proxy.cz<br>
+Got 200 IPs from xicidaili.com<br>
+
+Pinging total 221 IPs...<br>
+
+Finding the best from 15 qualified IPs<br>
+
+The best ip address is: <br>
+119.28.194.66<br>
+Its port number is: <br>
+8888<br>
+Its response time is: <br>
+4ms<br>
+This is for backup: 221.7.255.168:80<br>
+It takes 117 seconds<br>
+(\*^o^\*)
