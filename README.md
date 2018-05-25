@@ -35,4 +35,4 @@ Its response time is: <br>
 4ms<br>
 This is for backup: 221.7.255.168:80<br>
 It takes 117 seconds<br>
-(*^o^*)
+(\*^o^\*)
