@@ -26,7 +26,7 @@ Got 15 IPs from free-proxy.cz<br>
 Got 200 IPs from xicidaili.com<br>
 Got 30 IPs from kuaidaili.com<br>
 <br>
-Pinging total 261 IPs...<br>
+Pinging total 251 IPs...<br>
 <br>
 Finding the best from 20 qualified IPs<br>
 <br>
