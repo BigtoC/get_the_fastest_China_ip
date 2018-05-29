@@ -21,12 +21,12 @@ Requesting http://cn-proxy.com/<br>
 Requesting http://free-proxy.cz/zh/proxylist/country/CN/all/ping/all<br>
 Requesting https://www.kuaidaili.com/free/intr/<br>
 Requesting http://www.xicidaili.com/nt/<br>
-Got 0 IPs from cn-proxy.com<br>
-Got 0 IPs from free-proxy.cz<br>
+Got 6 IPs from cn-proxy.com<br>
+Got 15 IPs from free-proxy.cz<br>
 Got 200 IPs from xicidaili.com<br>
 Got 30 IPs from kuaidaili.com<br>
 <br>
-Pinging total 230 IPs...<br>
+Pinging total 261 IPs...<br>
 <br>
 Finding the best from 20 qualified IPs<br>
 <br>
