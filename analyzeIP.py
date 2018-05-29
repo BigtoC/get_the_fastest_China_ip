@@ -2,14 +2,10 @@
 
 import os
 import re
-import socket
 from getIP import dispatch, headers
 import requests
 import threading
 import queue
-import urllib3
-
-urllib3.disable_warnings()
 
 
 class IP:
