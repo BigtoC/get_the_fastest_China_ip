@@ -38,5 +38,5 @@ Its response time is: <br>
 0.231226 seconds<br>
 This is for backup: 120.26.110.59:8080<br>
 It takes 74 seconds<br>
-(/*^o^/*)
+(\*^o^\*)
 
