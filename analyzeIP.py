@@ -54,7 +54,7 @@ def get_all_ip(qg):
 
 def thread_analyze():
     global selected
-    print('\nPinging total {} IPs...\n'.format(len(ready_to_ping)))
+    print(f'\nPinging total {len(ready_to_ping)} IPs...\n')
     qa = queue.Queue()
     threads = []
 
@@ -90,7 +90,7 @@ def analyze_ip(qa):
         # print('{} Pinging {}'.format(counter, ip))
 
         timeout = '30'  # For filtering the IPs that the response time more that this time unit
-        result = os.popen('ping -n 3 -w {} {}'.format(timeout, ip)).read()
+        result = os.popen(f'ping -n 3 -w {timeout} {ip}').read()
 
         lost = re.search(lost_regex, result).group(0)
 
@@ -143,13 +143,13 @@ def analyze_ip(qa):
 def return_ip():
     for_return = []
     selected.sort(key=lambda x: x.speed)
-    print('Finding the best from {} qualified IPs'.format(len(selected)))
+    print(f'Finding the best from {len(selected)} qualified IPs')
 
     try:
         selected_ip = selected[0]
         for_return.append(selected_ip)
     except IndexError:
-        print('None of those IPs are usable T_T ')
+        print(f'None of those IPs are usable T_T ')
         exit()
 
     if len(selected) > 1:

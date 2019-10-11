@@ -25,7 +25,6 @@ headers = {
 def get_html(url):
 
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.set_headless()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     driver = None
@@ -64,7 +63,7 @@ def c_get_ip(url):
 
     ip_port = []
 
-    port_regex = re.compile(r'<td>\n             \d+\n            </td>')
+    port_regex = re.compile(r'<td>\n\s*\d+\n\s*</td>')
 
     all_ip = re.findall(ip_regex, html)
     tmp_port = re.findall(port_regex, html)
@@ -86,7 +85,7 @@ def c_get_ip(url):
     #     t.port = '8080'
     #     ip_port.append(t)
 
-    print('Got {} IPs from cn-proxy.com'.format(len(ip_port)))
+    print(f'Got {len(ip_port)} IPs from cn-proxy.com')
     return ip_port
 
 
@@ -116,7 +115,7 @@ def f_get_ip(url):
         t.port = all_port[i]
         ip_port.append(t)
 
-    print('Got {} IPs from free-proxy.cz'.format(len(ip_port)))
+    print(f'Got {len(ip_port)} IPs from free-proxy.cz')
     return ip_port
 
 
@@ -143,7 +142,7 @@ def k_get_ip(url):  # Abandoned! Ignore this!
             t.port = all_port[j]
             ip_port.append(t)
 
-    print('Got {} IPs from kuaidaili.com'.format(len(ip_port)))
+    print(f'Got {len(ip_port)} IPs from kuaidaili.com')
     return ip_port
 
 
@@ -170,7 +169,7 @@ def x_get_ip(url):
             t.port = all_port[j]
             ip_port.append(t)
 
-    print('Got {} IPs from xicidaili.com'.format(len(ip_port)))
+    print(f'Got {len(ip_port)} IPs from xicidaili.com')
     return ip_port
 
 

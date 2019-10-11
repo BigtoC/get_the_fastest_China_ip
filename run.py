@@ -12,14 +12,14 @@ urls = ['http://cn-proxy.com/',
 def print_result(selected):
     print()
     if selected[0].ip and selected[0].port and selected[0].speed != -1:
-        print('The best ip address is: \n{}'.format(selected[0].ip))
+        print(f'The best ip address is: \n{selected[0].ip}')
 
-        print('Its port number is: \n{}'.format(selected[0].port))
+        print(f'Its port number is: \n{selected[0].port}')
 
-        print('Its response time is: \n{} seconds'.format(selected[0].speed))
+        print(f'Its response time is: \n{selected[0].speed} seconds')
 
         if selected[1] is not None:
-            print('This is for backup: {}:{}'.format(selected[1].ip, selected[1].port))
+            print(f'This is for backup: {selected[1].ip}:{selected[1].port}')
 
     else:
         print("Error T_T")
@@ -27,7 +27,7 @@ def print_result(selected):
 
 if __name__ == '__main__':
 
-    start = time.clock()
+    start = time.process_time()
 
     analyzeIP.thread_get_ip(urls)  # First get all IPs and ports
 
@@ -35,9 +35,9 @@ if __name__ == '__main__':
 
     selected_ip = analyzeIP.return_ip()  # Get the selected IP's info
 
-    end = time.clock()
+    end = time.process_time()
 
     print_result(selected_ip)
-    print('It takes {} seconds'.format(int(end - start)))
-    print('(*^o^*)')
-    input('Press <enter> to exit...')
+    print(f'It takes {int(end - start)} seconds')
+    print(f'(*^o^*)')
+    input(f'Press <enter> to exit...')
