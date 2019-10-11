@@ -4,7 +4,7 @@ import time
 
 urls = ['http://cn-proxy.com/',
         'http://free-proxy.cz/zh/proxylist/country/CN/all/ping/all',
-        #  'https://www.kuaidaili.com/free/intr/',  # 快代理的ip虽然快，但是在网易云测试过都不能用，this website sucks
+        'https://www.kuaidaili.com/free/intr/',  # 快代理的ip虽然快，但是在网易云测试过都不能用，this website sucks
         'http://www.xicidaili.com/nt/'
         ]
 
