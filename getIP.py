@@ -1,7 +1,6 @@
 import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import platform
 
 
@@ -80,6 +79,12 @@ def c_get_ip(url):
         t.ip = all_ip[i]
         t.port = all_port[i]
         ip_port.append(t)
+
+    # for i in range(100):
+    #     t = Tmp()
+    #     t.ip = '39.137.77.66'
+    #     t.port = '8080'
+    #     ip_port.append(t)
 
     print('Got {} IPs from cn-proxy.com'.format(len(ip_port)))
     return ip_port
@@ -186,5 +191,4 @@ def x_get_ip(url):
     # print(len(ip_port))
     # r = requests.get('https://1.1.1.1', proxies={"http": "http://222.33.192.238:8118"})
     # print(r.status_code)
-
 

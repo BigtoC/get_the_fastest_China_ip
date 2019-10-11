@@ -13,12 +13,13 @@ def print_result(selected):
     print()
     if selected[0].ip and selected[0].port and selected[0].speed != -1:
         print('The best ip address is: \n{}'.format(selected[0].ip))
-        time.sleep(0.5)
+
         print('Its port number is: \n{}'.format(selected[0].port))
-        time.sleep(0.5)
-        print('Its response time is: \n{}ms'.format(selected[0].speed))
-        time.sleep(0.5)
-        print('This is for backup: {}:{}'.format(selected[1].ip, selected[1].port))
+
+        print('Its response time is: \n{} seconds'.format(selected[0].speed))
+
+        if selected[1] is not None:
+            print('This is for backup: {}:{}'.format(selected[1].ip, selected[1].port))
 
     else:
         print("Error T_T")
@@ -39,4 +40,4 @@ if __name__ == '__main__':
     print_result(selected_ip)
     print('It takes {} seconds'.format(int(end - start)))
     print('(*^o^*)')
-    input()
+    input('Press <enter> to exit...')
