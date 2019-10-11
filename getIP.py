@@ -93,9 +93,9 @@ def f_get_ip(url):
     html = get_html(url)
     ip_port = []
 
-    port_regex = re.compile(r'<span class="fport" style="">\n         \d+\n        <\/span>')
-    tmp_ip = re.findall(re.compile(r'</script>\n        \d+\.\d+\.\d+\.\d+\n       <\/td>|'
-                                   r'</script>\n         \d+\.\d+\.\d+\.\d+\n        </abbr>'), html)  # MDZZ
+    port_regex = re.compile(r'<span class="fport" style="">\n\s*\d+\n\s*</span>')
+    tmp_ip = re.findall(re.compile(r'</script>\n\s*\d+\.\d+\.\d+\.\d+\n\s*</td>|'
+                                   r'</script>\n\s*\d+\.\d+\.\d+\.\d+\n\s*</abbr>'), html)  # MDZZ
     tmp_port = re.findall(port_regex, html)
 
     all_ip = []
@@ -126,7 +126,7 @@ def k_get_ip(url):  # Abandoned! Ignore this!
         url = 'https://www.kuaidaili.com/free/intr/{}/'.format(i+1)
         html = get_html(url)
 
-        port_regex = re.compile(r'<td data-title="PORT">\n           \d+\n          </td>')
+        port_regex = re.compile(r'<td data-title="PORT">\n\s*\d+\n\s*</td>')
         all_ip = re.findall(ip_regex, html)
         tmp_port = re.findall(port_regex, html)
 
@@ -149,7 +149,7 @@ def k_get_ip(url):  # Abandoned! Ignore this!
 def x_get_ip(url):
     ip_port = []
     page_num = 2
-    port_regex = re.compile(r'       <td>\n        \d+\n       </td>')
+    port_regex = re.compile(r'\s*<td>\n\s*\d+\n\s*</td>')
 
     for i in range(page_num):
         u = url + str(i+1)
